@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/GalleryBook/BookGallery/app/src/main/res/layout/activity_main.xml" value="0.2884963768115942" />
+        <entry key="..\:/GalleryBook/BookGallery/app/src/main/res/layout/item_layout.xml" value="0.2359375" />
       </map>
     </option>
   </component>
-=======
->>>>>>> fdf7a8ddbf1f4c7678dad0de17354e5c48c7ba16
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
