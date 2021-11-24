@@ -7,10 +7,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object FlickrApiService {
-    private val retrofit = Retrofit.Builder().baseUrl("https://api.flickr.com")
+    private val retrofit = Retrofit.Builder().baseUrl("http://api.flickr.com")
         .addConverterFactory(GsonConverterFactory.create()).build()
 
     private val flickrApi = retrofit.create(IFlickrInterface::class.java)
-    suspend fun getPhotos(lon: Double, lat: Double, page: Int): Response<PhotoModel> =
-        flickrApi.getPhotos(lon, lat, page)
+    suspend fun getPhotos(lon:Double,lat:Double,page:Int): Response<PhotoModel> =
+        flickrApi.getPhotos(lon,lat,page)
 }

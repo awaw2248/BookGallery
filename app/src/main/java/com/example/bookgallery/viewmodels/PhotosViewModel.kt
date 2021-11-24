@@ -13,8 +13,8 @@ private const val TAG = "PhotosViewModel"
 
 class PhotosViewModel : ViewModel() {
 
-    private val photosLiveData = MutableLiveData<List<Photo>>()
-    private val errorLiveData = MutableLiveData<String>()
+    val photosLiveData = MutableLiveData<List<Photo>>()
+    val errorLiveData = MutableLiveData<String>()
     fun getPhotos(lon: Double, lat: Double, page: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             try {

@@ -13,7 +13,7 @@ import com.example.bookgallery.R
 import com.example.bookgallery.datamodels.Photo
 
 
-class PhotoRecyclerViewAdapter(val context: Context) :
+class PhotoRecyclerViewAdapter(private val context: Context) :
     RecyclerView.Adapter<PhotoRecyclerViewAdapter.PhotoViewHolder>() {
     val DIFF_CALL_BACK = object : DiffUtil.ItemCallback<Photo>(){
         override fun areItemsTheSame(oldItem: Photo, newItem: Photo): Boolean {
@@ -47,7 +47,6 @@ class PhotoRecyclerViewAdapter(val context: Context) :
         Glide.with(context)
             .load(item.urlS)
             .into(holder.imageView)
-
 
     }
 
