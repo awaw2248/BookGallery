@@ -6,12 +6,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bookgallery.datamodels.Photo
 import com.example.bookgallery.repositories.FlickrApiService
+import com.example.bookgallery.repositories.RoomServiceRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 private const val TAG = "PhotosViewModel"
 
 class PhotosViewModel : ViewModel() {
+
+    private val databaseRepo = RoomServiceRepository.get()
 
     val photosLiveData = MutableLiveData<List<Photo>>()
     val errorLiveData = MutableLiveData<String>()
