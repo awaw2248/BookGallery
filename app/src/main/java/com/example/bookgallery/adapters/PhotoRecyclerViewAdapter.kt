@@ -45,9 +45,11 @@ class PhotoRecyclerViewAdapter(private val context: Context) :
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
         val item = differ.currentList[position]
-        Picasso.get()
-            .load(item.urlS)
-            .into(holder.imageView)
+        holder.itemView.clipToOutline = true
+
+            Glide.with(context)
+                .load(item.urlS)
+                .into(holder.imageView)
 
     }
 
@@ -61,6 +63,7 @@ class PhotoRecyclerViewAdapter(private val context: Context) :
 
     class PhotoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
+
 
     }
 }

@@ -73,7 +73,7 @@ dependencies {
     implementation "com.google.android.material:material:1.5.0-beta01"
 
 
-
-
+// Getting Current Location on Android-- "FusedLocationProviderClient"
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
 
 }
