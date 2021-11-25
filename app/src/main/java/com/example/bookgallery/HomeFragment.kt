@@ -33,7 +33,7 @@ class HomeFragment : Fragment() {
         observers()
         photosAdapter = PhotoRecyclerViewAdapter(requireActivity())
         binding.recyclerView.adapter = photosAdapter
-        viewModel.getPhotos(-73.935242, 40.730610, 1)
+        viewModel.getPhotos(-73.935242, 40.730610, 2)
     }
 
     private fun observers() {
@@ -45,7 +45,7 @@ class HomeFragment : Fragment() {
         })
         viewModel.errorLiveData.observe(viewLifecycleOwner, {
             Log.d(TAG, it)
-            Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireActivity(), it, Toast.LENGTH_LONG).show()
         })
     }
 }

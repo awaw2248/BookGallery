@@ -21,6 +21,7 @@ class PhotosViewModel : ViewModel() {
                 val photoResponse = FlickrApiService.getPhotos(lon, lat, page)
                 if (photoResponse.isSuccessful) {
                     photoResponse.body()?.let {
+                        Log.d(TAG,it.photos.photo.toString())
                         photosLiveData.postValue(it.photos.photo)
                     }
                 } else {
