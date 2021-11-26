@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Users/hht_t/Desktop/Byteme/BookGallery/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1175925925925926" />
         <entry key="..\:/Users/hht_t/Desktop/Byteme/BookGallery/app/src/main/res/drawable/floating_action_button.xml" value="0.1" />
         <entry key="..\:/Users/hht_t/Desktop/Byteme/BookGallery/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1" />
@@ -19,6 +20,18 @@
         <entry key="..\:/Users/hht_t/Desktop/Byteme/BookGallery/app/src/main/res/menu/menu.xml" value="0.1046875" />
         <entry key="..\:/Users/hht_t/Desktop/Byteme/BookGallery/app/src/main/res/menu/navigation_menu.xml" value="0.22333333333333336" />
         <entry key="..\:/Users/hht_t/Desktop/Byteme/BookGallery/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+=======
+        <entry key="app/src/main/res/drawable/favorite_button.xml" value="0.2203125" />
+        <entry key="app/src/main/res/drawable/home_button.xml" value="0.2203125" />
+        <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2203125" />
+        <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
+        <entry key="app/src/main/res/drawable/image_rectangle.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/item_layout.xml" value="0.26378036256875814" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.2" />
+>>>>>>> 98d8e47e6be0b275acb2a51e531c07760946f2b8
       </map>
     </option>
   </component>
