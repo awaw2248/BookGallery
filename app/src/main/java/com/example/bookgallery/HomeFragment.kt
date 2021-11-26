@@ -21,16 +21,16 @@ private const val TAG = "HomeFragment"
 
 class HomeFragment : Fragment() {
     private val viewModel: PhotosViewModel by activityViewModels()
-    lateinit var photosAdapter: PhotoRecyclerViewAdapter
-    lateinit var binding: FragmentHomeBinding
+   private  lateinit var photosAdapter: PhotoRecyclerViewAdapter
+    private lateinit var binding: FragmentHomeBinding
 
     //===============================================
-    private val LOCATION_PERMISSION_REQ_CODE = 1000
+
     private lateinit var fusedLocationClient:
             FusedLocationProviderClient
 
-    var latitude: Double = 0.0
-    var longitude: Double = 0.0
+   private var latitude: Double = 0.0
+   private var longitude: Double = 0.0
     //==============================================
 
     override fun onCreateView(
@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
 
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        checkPermission()
+
         return binding.root
     }
 
@@ -69,10 +69,15 @@ class HomeFragment : Fragment() {
         })
         viewModel.errorLiveData.observe(viewLifecycleOwner, {
             Log.d(TAG, it)
-            Toast.makeText(requireActivity(), it, Toast.LENGTH_LONG).show()
+            Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
+
+        })
+        viewModel.permission.observe(viewLifecycleOwner, {
+            if (it == true) {
+                getCurrentLocation()
+            }
         })
     }
-
 
     //-----------------------------------------------------------------------------------------------
     private fun getCurrentLocation() {
@@ -97,50 +102,6 @@ class HomeFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        when (requestCode) {
-            LOCATION_PERMISSION_REQ_CODE -> {
-                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                    getCurrentLocation()
-                } else {
-                    Toast.makeText(
-                        requireActivity(),
-                        "You need to grant permission to location",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    ActivityCompat.requestPermissions(
-                        requireActivity(),
-                        arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                        LOCATION_PERMISSION_REQ_CODE
-                    )
-                }
-            }
-        }
-    }
-
-    fun checkPermission() {
-        // checking location permission
-        if (ActivityCompat.checkSelfPermission(
-                requireActivity(),
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) !=
-            PackageManager.PERMISSION_GRANTED
-        ) {
-
-            // request permission
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                LOCATION_PERMISSION_REQ_CODE
-            )
-            return
         }
     }
 }
