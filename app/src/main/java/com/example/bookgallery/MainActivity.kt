@@ -21,17 +21,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        RoomServiceRepository.init(this)
+        checkPermission()
+
 
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.navigation_menu, menu)
-
-
-        RoomServiceRepository.init(this)
-        checkPermission()
+        return true
     }
-
 
 
     fun checkPermission() {
