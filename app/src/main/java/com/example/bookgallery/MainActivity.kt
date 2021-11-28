@@ -12,16 +12,19 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
+import com.example.bookgallery.databinding.ActivityMainBinding
 import com.example.bookgallery.repositories.RoomServiceRepository
 import com.example.bookgallery.viewmodels.PhotosViewModel
 
 val LOCATION_PERMISSION_REQ_CODE = 1000
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     private val photosViewModel: PhotosViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         RoomServiceRepository.init(this)
         checkPermission()
@@ -29,11 +32,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.navigation_menu, menu)
-        return true
     }
 
 
@@ -49,8 +47,7 @@ class MainActivity : AppCompatActivity() {
             // request permission
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                LOCATION_PERMISSION_REQ_CODE
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQ_CODE
             )
             return
         }
@@ -81,6 +78,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }
