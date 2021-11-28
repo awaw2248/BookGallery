@@ -1,9 +1,11 @@
 package com.example.bookgallery
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.SearchView
@@ -23,6 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         RoomServiceRepository.init(this)
         checkPermission()
+
+
 
 
     }
