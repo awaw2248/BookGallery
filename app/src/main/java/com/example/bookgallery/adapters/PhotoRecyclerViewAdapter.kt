@@ -11,11 +11,12 @@ import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.Glide
 import com.example.bookgallery.R
 import com.example.bookgallery.datamodels.Photo
+import com.squareup.picasso.Picasso
 
 
-class PhotoRecyclerViewAdapter(val context: Context) :
+class PhotoRecyclerViewAdapter(private val context: Context) :
     RecyclerView.Adapter<PhotoRecyclerViewAdapter.PhotoViewHolder>() {
-    val DIFF_CALL_BACK = object : DiffUtil.ItemCallback<Photo>(){
+    val DIFF_CALL_BACK = object : DiffUtil.ItemCallback<Photo>() {
         override fun areItemsTheSame(oldItem: Photo, newItem: Photo): Boolean {
             return oldItem.id == newItem.id
         }
@@ -44,21 +45,25 @@ class PhotoRecyclerViewAdapter(val context: Context) :
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
         val item = differ.currentList[position]
-        Glide.with(context)
-            .load(item.urlS)
-            .into(holder.imageView)
+        holder.itemView.clipToOutline = true
 
+            Glide.with(context)
+                .load(item.urlS)
+                .into(holder.imageView)
 
     }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
+
     fun submitList(list: List<Photo>) {
         differ.submitList(list)
     }
+
     class PhotoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView : ImageView = itemView.findViewById(R.id.imageView)
+        val imageView: ImageView = itemView.findViewById(R.id.imageView)
+
 
     }
 }

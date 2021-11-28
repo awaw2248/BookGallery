@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +9,7 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
+        android:id="@+id/fragmentContainerView2"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,8 +40,9 @@
             app:contentInsetStart="0dp"
             app:contentInsetStartWithNavigation="0dp"
             app:elevation="8dp"
-            app:itemIconTint="@color/white_gray"
-            app:itemTextColor="@color/white_gray"
+            app:itemIconTint="@color/icons_color"
+            app:itemTextColor="@color/icons_color"
+            app:itemRippleColor="@color/gray1"
             app:menu="@menu/menu" />
 
     </com.google.android.material.bottomappbar.BottomAppBar>
@@ -50,13 +52,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:foreground="@drawable/floating_action_button"
-        android:tint="@color/white_gray"
-        app:backgroundTint="@color/dark_gray"
+        android:tint="@color/white"
+        app:backgroundTint="@color/blue_floatin"
         app:layout_anchor="@id/bottomAppBar"
         app:maxImageSize="35dp"
-        app:srcCompat="@drawable/ic_baseline_photo_camera_24"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:srcCompat="@drawable/floating_action_button"
+        tools:ignore="SpeakableTextPresentCheck"
+        app:rippleColor="@color/white"
+        />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
