@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         makeCurrentFragment(homeFragment)
 
+        // here when ever we press on the favorite navigation bottom we will transfer to that fragment
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.home -> makeCurrentFragment(homeFragment)
@@ -101,6 +102,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    // this function used to have the current fragment(HomeFragment) and used it to
+    // go to favorite fragment and transfer back to home fragment...
     private fun makeCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragmentContainerView2,fragment)
