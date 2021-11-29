@@ -18,7 +18,6 @@
         tools:targetApi="m">
         <activity
             android:name=".SplashActivity"
-            android:label="Splash"
             android:exported="true"
             android:noHistory="true">
             <intent-filter>
