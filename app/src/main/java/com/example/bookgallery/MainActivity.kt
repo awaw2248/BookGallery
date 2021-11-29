@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         makeCurrentFragment(homeFragment)
 
-        binding.bottomNavigationView.setOnNavigationItemReselectedListener {
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.home -> makeCurrentFragment(homeFragment)
                 R.id.favorite -> makeCurrentFragment(favoriteFragment)
