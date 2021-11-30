@@ -1,24 +1,22 @@
 package com.example.bookgallery
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.SearchView
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.bookgallery.databinding.ActivityMainBinding
+
 import com.example.bookgallery.repositories.RoomServiceRepository
 import com.example.bookgallery.viewmodels.PhotosViewModel
-import javax.net.ssl.HostnameVerifier
 
 val LOCATION_PERMISSION_REQ_CODE = 1000
 
@@ -39,22 +37,27 @@ class MainActivity : AppCompatActivity() {
         RoomServiceRepository.init(this)
         checkPermission()
 
-        val homeFragment = HomeFragment()
-        val favoriteFragment = FavoriteFragment()
-
-        makeCurrentFragment(homeFragment)
+//
+//        val homeFragment = HomeFragment()
+//        val favoriteFragment = FavoriteFragment()
+//
+//        makeCurrentFragment(homeFragment)
 
         // here when ever we press on the favorite navigation bottom we will transfer to that fragment
-        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.home -> makeCurrentFragment(homeFragment)
-                R.id.favorite -> makeCurrentFragment(favoriteFragment)
-            }
-            true
-        }
+//        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
+//            when(it.itemId){
+//                R.id.home -> makeCurrentFragment(homeFragment)
+//                supportFragmentManager.
+//                R.id.favorite -> makeCurrentFragment(favoriteFragment)
+//            }
+//            true
+//        }
 
+        val navigationHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        navController = navigationHostFragment.navController
+        NavigationUI.setupWithNavController(binding.bottomAppBar,navController)
 
-
+        setupActionBarWithNavController(navController)
 
     }
 
@@ -103,11 +106,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // this function used to have the current fragment(HomeFragment) and used it to
-    // go to favorite fragment and transfer back to home fragment...
-    private fun makeCurrentFragment(fragment: Fragment) =
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragmentContainerView2,fragment)
-            commit()
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp()
+    }
 }

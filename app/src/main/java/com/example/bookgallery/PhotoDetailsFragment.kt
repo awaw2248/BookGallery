@@ -14,6 +14,8 @@ import androidx.lifecycle.Observer
 import com.example.bookgallery.databinding.FragmentPhotoDetailsBinding
 import com.example.bookgallery.datamodels.Photo
 import com.example.bookgallery.viewmodels.PhotosViewModel
+import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.Picasso
 
 class PhotoDetailsFragment : Fragment() {
@@ -34,6 +36,14 @@ class PhotoDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+       val bottomBar:BottomAppBar = requireActivity().findViewById(R.id.bottomAppBar)
+        bottomBar.visibility = View.GONE
+
+        val photoButton:FloatingActionButton = requireActivity().findViewById(R.id.upload_photo_button)
+        photoButton.visibility = View.GONE
+
+
+
             photoViewModel.selectPhotoMutableLiveData.observe(viewLifecycleOwner,  {
                 it?.let { photo ->
                     binding.titlePhotoDetailsTextView.text = photo.title
@@ -41,7 +51,7 @@ class PhotoDetailsFragment : Fragment() {
                     binding.longitudePhotoDetailsTextView.text = photo.lon.toString()
                     binding.latitudePhotoDetailsTextView.text = photo.lat.toString()
                 }
-            })
+            } )
 
 
     }

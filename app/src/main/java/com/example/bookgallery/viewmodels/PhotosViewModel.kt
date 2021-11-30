@@ -20,6 +20,7 @@ class PhotosViewModel : ViewModel() {
     val photosLiveData = MutableLiveData<List<Photo>>()
     val errorLiveData = MutableLiveData<String>()
     val permission = MutableLiveData<Boolean>()
+    val selectPhotoMutableLiveData = MutableLiveData<Photo>()
     var numberOfPages: Int = 1
     var requested = false
     var page = 1

@@ -17,6 +17,8 @@ import com.example.bookgallery.datamodels.Photo
 import com.example.bookgallery.viewmodels.PhotosViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 private const val TAG = "HomeFragment"
 
@@ -50,6 +52,11 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val bottomBar: BottomAppBar = requireActivity().findViewById(R.id.bottomAppBar)
+        bottomBar.visibility = View.VISIBLE
+
+        val photoButton: FloatingActionButton = requireActivity().findViewById(R.id.upload_photo_button)
+        photoButton.visibility = View.VISIBLE
 
         observers()
         // initialize fused location client--------------------------------------------------------
