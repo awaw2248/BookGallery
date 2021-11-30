@@ -18,6 +18,7 @@ import com.example.bookgallery.databinding.ActivityMainBinding
 
 import com.example.bookgallery.repositories.RoomServiceRepository
 import com.example.bookgallery.viewmodels.PhotosViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.zhihu.matisse.Matisse
 import com.zhihu.matisse.MimeType
 import com.zhihu.matisse.internal.entity.CaptureStrategy
@@ -58,11 +59,11 @@ class MainActivity : AppCompatActivity() {
 //            }
 //            true
 //        }
-
+        val bottomNavigation:BottomNavigationView = findViewById(R.id.bottom_app_bar)
         val navigationHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navigationHostFragment.navController
-        NavigationUI.setupWithNavController(binding.bottomAppBar, navController)
+        NavigationUI.setupWithNavController(bottomNavigation, navController)
 
         setupActionBarWithNavController(navController)
         binding.uploadPhotoButton.setOnClickListener {
