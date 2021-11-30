@@ -31,5 +31,10 @@ data class Photo(
     @SerializedName("url_s")
     val urlS: String,
     @SerializedName("width_s")
-    val widthS: Int
+    val widthS: Int,
+    @SerializedName("latitude")
+    val lat:Double,
+    @SerializedName("longitude")
+    val lon:Double
+
 )

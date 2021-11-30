@@ -8,15 +8,20 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.bookgallery.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
+            android:id="@+id/action_homeFragment_to_photoDetailsFragment"
+            app:destination="@id/photoDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/mapsFragment"
-        android:name="com.example.bookgallery.MapsFragment"
-        android:label="fragment_maps"
-        tools:layout="@layout/fragment_maps" />
+        android:id="@+id/photoDetailsFragment"
+        android:name="com.example.bookgallery.PhotoDetailsFragment"
+        android:label="fragment_photo_details"
+        tools:layout="@layout/fragment_photo_details" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.bookgallery.FavoriteFragment"
+        android:label="@string/favorite"
+        tools:layout="@layout/fragment_favorite" />
 </navigation>
