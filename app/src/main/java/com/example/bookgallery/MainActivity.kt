@@ -12,15 +12,25 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.bookgallery.databinding.ActivityMainBinding
 import com.example.bookgallery.repositories.RoomServiceRepository
 import com.example.bookgallery.viewmodels.PhotosViewModel
+import javax.net.ssl.HostnameVerifier
 
 val LOCATION_PERMISSION_REQ_CODE = 1000
 
+
+
 class MainActivity : AppCompatActivity() {
+
+
+    private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
     private val photosViewModel: PhotosViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -28,6 +38,20 @@ class MainActivity : AppCompatActivity() {
 
         RoomServiceRepository.init(this)
         checkPermission()
+
+        val homeFragment = HomeFragment()
+        val favoriteFragment = FavoriteFragment()
+
+        makeCurrentFragment(homeFragment)
+
+        // here when ever we press on the favorite navigation bottom we will transfer to that fragment
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.home -> makeCurrentFragment(homeFragment)
+                R.id.favorite -> makeCurrentFragment(favoriteFragment)
+            }
+            true
+        }
 
 
 
@@ -78,4 +102,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    // this function used to have the current fragment(HomeFragment) and used it to
+    // go to favorite fragment and transfer back to home fragment...
+    private fun makeCurrentFragment(fragment: Fragment) =
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragmentContainerView2,fragment)
+            commit()
+        }
 }

@@ -13,7 +13,7 @@
 <!--        android:title="" />-->
 
     <item
-        android:id="@+id/Favorite"
+        android:id="@+id/favorite"
         android:icon="@drawable/ic_baseline_favorite_24"
         android:title="@string/favorite" />
 
