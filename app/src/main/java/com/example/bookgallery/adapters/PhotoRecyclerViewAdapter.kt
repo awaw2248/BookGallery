@@ -6,15 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.Glide
+import com.example.bookgallery.MainActivity
 import com.example.bookgallery.R
 import com.example.bookgallery.datamodels.Photo
+import com.example.bookgallery.viewmodels.PhotosViewModel
 import com.squareup.picasso.Picasso
 
 
-class PhotoRecyclerViewAdapter(private val context: Context) :
+class PhotoRecyclerViewAdapter(private val context: Context,private val viewModel:PhotosViewModel) :
     RecyclerView.Adapter<PhotoRecyclerViewAdapter.PhotoViewHolder>() {
     val DIFF_CALL_BACK = object : DiffUtil.ItemCallback<Photo>() {
         override fun areItemsTheSame(oldItem: Photo, newItem: Photo): Boolean {
@@ -50,6 +54,15 @@ class PhotoRecyclerViewAdapter(private val context: Context) :
             Glide.with(context)
                 .load(item.urlS)
                 .into(holder.imageView)
+
+            holder.itemView.setOnClickListener {
+//                Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_photoDetailsFragment, null)
+//                Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_photoDetailsFragment).onClick(holder.itemView)
+               it.findNavController().navigate(R.id.action_homeFragment_to_photoDetailsFragment)
+
+                viewModel.selectPhotoMutableLiveData.postValue(item)
+
+            }
 
     }
 

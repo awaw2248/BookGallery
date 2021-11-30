@@ -19,6 +19,10 @@ class PhotosViewModel : ViewModel() {
     val photosLiveData = MutableLiveData<List<Photo>>()
     val errorLiveData = MutableLiveData<String>()
     val permission = MutableLiveData<Boolean>()
+
+    var selectPhotoMutableLiveData = MutableLiveData<Photo>()
+
+
     fun getPhotos(lon: Double, lat: Double, page: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             try {

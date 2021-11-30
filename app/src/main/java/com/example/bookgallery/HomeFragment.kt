@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
         fusedLocationClient =
             LocationServices.getFusedLocationProviderClient(requireActivity())
         //------------------------------------------------------------------------------------------
-        photosAdapter = PhotoRecyclerViewAdapter(requireActivity())
+        photosAdapter = PhotoRecyclerViewAdapter(requireActivity(),viewModel)
         binding.recyclerView.adapter = photosAdapter
 
         getCurrentLocation()
