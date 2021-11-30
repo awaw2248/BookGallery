@@ -71,7 +71,7 @@ class HomeFragment : Fragment() {
             LocationServices.getFusedLocationProviderClient(requireActivity())
 
         //------------------------------------------------------------------------------------------
-        photosAdapter = PhotoRecyclerViewAdapter(requireActivity())
+        photosAdapter = PhotoRecyclerViewAdapter(requireActivity(), viewModel)
         binding.recyclerView.adapter = photosAdapter
 //-----------------------------------------------------------------------------------------------
         binding.btOpenMap.setOnClickListener { openMap() }
@@ -192,8 +192,7 @@ class HomeFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == MAP_REQUEST_CODE && resultCode == RESULT_OK){
-            latitude
-            longitude
+
         }
 
     }
